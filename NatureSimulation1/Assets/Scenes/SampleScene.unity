@@ -2278,9 +2278,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 141013315}
     m_Modifications:
+    - target: {fileID: -8993791562153512834, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3869030618827111559, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
       propertyPath: m_Name
       value: foodPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869030618827111559, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4538043434740278845, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
       propertyPath: m_RootOrder
@@ -3903,6 +3911,9 @@ GameObject:
   - component: {fileID: 463704743}
   - component: {fileID: 463704742}
   - component: {fileID: 463704741}
+  - component: {fileID: 463704749}
+  - component: {fileID: 463704748}
+  - component: {fileID: 463704747}
   m_Layer: 3
   m_Name: Rabbit
   m_TagString: Untagged
@@ -3910,20 +3921,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &463704741
-MonoBehaviour:
+--- !u!54 &463704741
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463704740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  target: {fileID: 0}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!114 &463704742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4011,8 +4024,86 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &463704747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463704740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radius: 0.5
+  height: 0.7
+  repathRate: 0.5
+  canSearch: 1
+  canMove: 1
+  maxSpeed: 2.52
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  orientation: 0
+  enableRotation: 1
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 300
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 2
+  endReachedDistance: 1.08
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
+--- !u!114 &463704748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463704740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &463704749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463704740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
 --- !u!1001 &473652082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4610,6 +4701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: foodPlant
       objectReference: {fileID: 0}
+    - target: {fileID: 3869030618827111559, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4538043434740278845, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4877,6 +4972,10 @@ PrefabInstance:
     - target: {fileID: 3869030618827111559, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
       propertyPath: m_Name
       value: foodPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869030618827111559, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4538043434740278845, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
       propertyPath: m_RootOrder
@@ -5808,7 +5907,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &707593671
 PrefabInstance:
@@ -6650,6 +6749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: foodPlant
       objectReference: {fileID: 0}
+    - target: {fileID: 3869030618827111559, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4538043434740278845, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -7484,6 +7587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: foodPlant
       objectReference: {fileID: 0}
+    - target: {fileID: 3869030618827111559, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4538043434740278845, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8260,11 +8367,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 3.02, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &975631246
 PrefabInstance:
@@ -8929,6 +9036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: foodPlant
       objectReference: {fileID: 0}
+    - target: {fileID: 3869030618827111559, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4538043434740278845, guid: 1b87cdf8d7fcbff4caeea2257f2bf3c9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -9035,7 +9146,7 @@ Transform:
   - {fileID: 141013315}
   - {fileID: 773988193}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1153295256
 PrefabInstance:
@@ -9377,7 +9488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 3.0949}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1197570999
 PrefabInstance:
@@ -14138,6 +14249,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 773988193}
     m_Modifications:
+    - target: {fileID: 4965547597136670749, guid: f09a54df54196214cb0cec96bcb5fe6a, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8553834666819479009, guid: f09a54df54196214cb0cec96bcb5fe6a, type: 3}
       propertyPath: m_Name
       value: grassBlock

@@ -27,10 +27,10 @@ public class Rabbit : MonoBehaviour
         if(target != null) GetComponent<AIDestinationSetter>().target = target.transform;
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position,sight);
+        Gizmos.DrawWireSphere(transform.position , sight);
     }
 
     void Vision()
