@@ -21,6 +21,8 @@ public class Rabbit : MonoBehaviour
 
     private float hunger, thirst = 30;
 
+    public Collider[] colliders;
+
 
     float sight = 5f;
 
@@ -111,7 +113,7 @@ public class Rabbit : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position , 2.1f);
+        Gizmos.DrawWireSphere(transform.position , sight);
     }
     Collider Vision(String taskLayer)
     {
@@ -122,7 +124,7 @@ public class Rabbit : MonoBehaviour
         if (targetCollider != null) targetCollider.GetComponent<MeshRenderer>().material.color = Color.green;
         
         distance = Mathf.Infinity;
-        var colliders = Physics.OverlapSphere(transform.position, sight, 1 << LayerMask.NameToLayer(taskLayer));
+        colliders = Physics.OverlapSphere(transform.position, sight, 1 << LayerMask.NameToLayer(taskLayer));
         
         
         foreach (var collider in colliders)
